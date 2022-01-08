@@ -1,0 +1,37 @@
+<template>
+  <!-- Generic datatable component reused in forms where a datatable needs to be formed-->
+  <div style="height: auto">
+    <lightning-datatable key-field="Id"
+                          data={recordsToDisplay}
+                          onsort={handleSort}
+                          columns={columns}
+                          sorted-direction={sortedDirection}
+                          sorted-by={sortedBy}
+                          hide-checkbox-column>
+    </lightning-datatable>
+    <div class="slds-p-around_small">
+        <div class="slds-clearfix">
+            <div class="slds-float_left">
+              <!--
+              <lightning-combobox value={pageSize}
+                                  variant="label-hidden"
+                                  options={pagesizeOptions}
+                                  onchange={handlePageSizeChange}>
+              </lightning-combobox>
+              -->
+            </div>
+            <div class="slds-float_right">
+                <span>{fromRecords}-{toRecords} of {totalRecords}</span>
+                <lightning-button label="First" title="First" icon-name="utility:jump_to_left" class="slds-m-left_x-small" onclick={first} if:true={showPrevious}></lightning-button>
+                <lightning-button label="First" title="First" icon-name="utility:jump_to_left" class="slds-m-left_x-small" onclick={first} if:false={showPrevious} disabled></lightning-button>
+                <lightning-button label="Previous" title="Previous" icon-name="utility:chevronleft" class="slds-m-left_x-small" onclick={previous} if:true={showPrevious}></lightning-button>
+                <lightning-button label="Previous" title="Previous" icon-name="utility:chevronleft" class="slds-m-left_x-small" onclick={previous} if:false={showPrevious} disabled></lightning-button>
+                <lightning-button label="Next" title="Next" icon-name="utility:chevronright" class="slds-m-left_x-small" onclick={next} if:true={showNext}></lightning-button>
+                <lightning-button label="Next" title="Next" icon-name="utility:chevronright" class="slds-m-left_x-small" onclick={next} if:false={showNext} disabled></lightning-button>
+                <lightning-button label="Last" title="Last" icon-name="utility:jump_to_right" class="slds-m-left_x-small" onclick={last} if:true={showNext}></lightning-button>
+                <lightning-button label="Last" title="Last" icon-name="utility:jump_to_right" class="slds-m-left_x-small" onclick={last} if:false={showNext} disabled></lightning-button>
+            </div>
+        </div>            
+    </div> 
+  </div>
+</template>

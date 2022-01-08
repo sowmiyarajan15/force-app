@@ -1,0 +1,15 @@
+<template>
+    <div class="slds-theme_default slds-box">
+        <div style="font-size:16px">Financial Services</div>
+         <template if:true={isDataAvaialble}>
+         <c-datatable records={data.accounts}
+                             columns={accountColumns} 
+                             key-field="id"
+                             sorted-by={sortBy}
+                             sorted-direction={sortDirection}
+                             hide-checkbox-column="true">
+         </c-datatable>
+         </template>
+    </div>
+       
+</template>
